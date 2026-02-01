@@ -1,0 +1,15 @@
+.button-login {
+    width: 150px;
+    height: 64px;
+    color: white;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.button-login:hover {
+    animation-name: hoverButtonLogin;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}

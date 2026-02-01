@@ -1,0 +1,6 @@
+@keyframes hoverButtonSignOut {
+    100% {
+        background-size:  200% auto;
+         background-position: right center;
+    }
+}

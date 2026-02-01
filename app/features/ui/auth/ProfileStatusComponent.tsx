@@ -2,7 +2,8 @@
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
-
+import './style/animation/ProfileStatusComponent.css'
+import './style/ProfileStatusComponent.css'
 export default function ProfileStatusComponent() {
   const { data: session, status } = useSession();
   function Login() {
@@ -11,7 +12,10 @@ export default function ProfileStatusComponent() {
     return (
         <div>
           {!session ? (
-          <button onClick={() => Login()}>
+          <button 
+              className="button-login"
+              onClick={() => Login()}
+           >
               Войти через GitHub
           </button>
           ) : (
@@ -20,8 +24,9 @@ export default function ProfileStatusComponent() {
             <Image
               src={session.user.image} 
               alt={session.user?.name || "Аватар пользователя"}
-              height={40}
-              width={40}
+              height={64}
+              width={64}
+              className="rounded-[45%]"
             />
           )}
         </Link>

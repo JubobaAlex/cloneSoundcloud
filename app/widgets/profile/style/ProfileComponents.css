@@ -1,0 +1,29 @@
+.block-profile {
+    background: linear-gradient(20deg, white, silver);
+    height: 220px;
+    width: 1200px;
+    color: black;
+    border-radius: 20px;
+    
+}
+.block-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-signOut-profile {
+   background: linear-gradient(to right, #3b82f6, #8b5cf6);
+   cursor: pointer;
+   border-radius: 20px;
+   width: 150;
+   height: 50;
+   color: white;
+   font-weight: bold;
+}
+
+.button-signOut-profile:hover {
+  animation-name:hoverButtonSignOut;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
