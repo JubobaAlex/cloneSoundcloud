@@ -26,7 +26,7 @@ export default function ProfileStatusComponent() {
               alt={session.user?.name || "Аватар пользователя"}
               height={64}
               width={64}
-              className="rounded-[45%]"
+              className="rounded-[45%] profile-logo"
             />
           )}
         </Link>

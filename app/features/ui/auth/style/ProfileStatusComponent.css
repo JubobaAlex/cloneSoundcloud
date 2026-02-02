@@ -13,3 +13,10 @@
     animation-timing-function: ease;
     animation-fill-mode: forwards;
 }
+
+.profile-logo:hover {
+  animation-name: hoverProfileLogin;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards; 
+}

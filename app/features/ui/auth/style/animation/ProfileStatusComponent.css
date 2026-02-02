@@ -4,3 +4,10 @@
          background-position: right center;
     }
 }
+
+@keyframes hoverProfileLogin {
+  100% {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+}
