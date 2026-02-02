@@ -28,7 +28,7 @@ export default function ProfileComponent() {
           />
         )}
         <div className="block-profile-info">
-          <h2 className="text-black text-3xl">{user?.name || "Пользователь"}</h2>
+          <h2 className="text-black font-bold text-3xl">{user?.name || "Пользователь"}</h2>
             <button className="button-signOut-profile" onClick={logout}>
               Выйти из аккаунта
             </button>

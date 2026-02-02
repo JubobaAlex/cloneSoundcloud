@@ -1,9 +1,10 @@
-import ProfileStatusComponent from "@/app/features/ui/auth/ProfileStatusComponent";
+import Header from "@/app/widgets/header/Header";
 
 export default function Home() {
   return (
-    <div>
-      <ProfileStatusComponent />
-    </div>
+    <>
+      <Header />
+      
+    </>
   )
 }
