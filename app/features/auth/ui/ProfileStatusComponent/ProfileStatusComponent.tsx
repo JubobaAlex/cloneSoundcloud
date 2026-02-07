@@ -2,8 +2,8 @@
 import { signIn, useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
-import './style/animation/ProfileStatusComponent.css'
-import './style/ProfileStatusComponent.css'
+import '@/app/features/auth/style/animation/ProfileStatusComponent.css'
+import '@/app/features/auth/style/ProfileStatusComponent.css'
 export default function ProfileStatusComponent() {
   const { data: session, status } = useSession();
   function Login() {

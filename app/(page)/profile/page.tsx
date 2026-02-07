@@ -1,5 +1,5 @@
 import BlockInfo from "@/app/shared/BlockInfo/ui/BlockInfo"
-import Header from "@/app/widgets/header/ui/Header"
+import Header from "@/app/widgets/header/ui/HeaderComponent"
 import ProfileComponents from "@/app/widgets/profile/ui/ProfileComponents"
 export default function Profile() {
   return (

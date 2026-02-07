@@ -1,4 +1,4 @@
-import ProfileStatusComponent from "@/app/features/ui/auth/ProfileStatusComponent";
+import ProfileStatusComponent from "@/app/features/auth/ui/ProfileStatusComponent/ProfileStatusComponent";
 import Logo from "@/app/shared/Logo/ui/Logo";
 
 export default function Header() {
