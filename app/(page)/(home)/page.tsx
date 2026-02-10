@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Header />
       <div className="flex justify-center mb-20">
-        <BlockInfo title={'Лента песень'}/>
+        <BlockInfo title={'Лента песен'}/>
       </div>
       <div>
        <LiverTape />
