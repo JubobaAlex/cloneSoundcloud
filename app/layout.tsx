@@ -2,7 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-
+import StoreProvider from "./providers/StoreProvider";
 export default function RootLayout({
   children,
 }: {
@@ -11,7 +11,9 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <SessionProvider>{children}</SessionProvider>
+        <StoreProvider>
+            <SessionProvider>{children}</SessionProvider>
+        </StoreProvider>
       </body>
     </html>
   );

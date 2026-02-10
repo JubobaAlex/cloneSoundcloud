@@ -1,10 +1,19 @@
 'use client'
 import { IApiMusic } from "@/app/features/auth/model/types";
-import { useState } from "react"
+import {  memo, useState } from "react"
 import { ILoadingMusicComponentProps } from "@/app/features/auth/model/types";
-
-export default function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
+import { useDispatch, useSelector } from "react-redux";
+import { addListenedItem } from '@/app/features/last-played/model/slice/ListenedToSlice'
+function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
     const [tracks, setTracks] = useState<IApiMusic[]>(initialData)
+     const dispatch = useDispatch()
+    const musicData = useSelector((state:any) => state.listenedTo.musicData || [] )
+
+    function ListenedItesm(track:IApiMusic) {
+        dispatch(addListenedItem(track))
+        console.log(musicData)
+    }
+
 
     return (
         <div className="flex gap-6 justify-center flex-wrap">
@@ -14,7 +23,7 @@ export default function LoadingMusicComponent({ initialData }: ILoadingMusicComp
                 ) : (
                     tracks.map((track) => (
                         <div 
-                            className="rounded-2xl text-black w-[320px] bg-gray-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300" 
+                            className="rounded-2xl text-black w-[320px] bg-gray-100 p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             key={track.id}
                         >
                             <div className="space-y-3">
@@ -31,6 +40,7 @@ export default function LoadingMusicComponent({ initialData }: ILoadingMusicComp
                                     Длительность: {Math.floor(track.duration / 60)}:{(track.duration % 60).toString().padStart(2, '0')}
                                 </div>
                                 <audio 
+                                    onPlay={() => ListenedItesm(track)}
                                     className="w-full h-10 [&::-webkit-media-controls-panel]:bg-gray-200 [&::-webkit-media-controls-panel]:rounded-lg shadow-inner"
                                     controls
                                 >
@@ -44,3 +54,5 @@ export default function LoadingMusicComponent({ initialData }: ILoadingMusicComp
         </div>
     )
 }
+
+export default memo(LoadingMusicComponent)

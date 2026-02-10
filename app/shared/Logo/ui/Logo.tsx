@@ -1,4 +1,5 @@
 import Link from "next/link";
+import '../style/Logo.css'
 import Image from "next/image";
 export default function Logo() {
     return (
@@ -11,7 +12,7 @@ export default function Logo() {
                 width={50}
                 />
                  <h2 
-                    className="text-3xl [text-shadow:0_2px_4px_black]"  
+                    className={`text-3xl [text-shadow:0_2px_4px_black] text-logo`}  
                     style={{ fontFamily: 'Impact, Charcoal, sans-serif' }}
                     >
                     cloneSoundcloud
