@@ -66,5 +66,7 @@ npm run build
 
 npm start
 
+# Веб-версия
+https://clone-soundcloud-phi.vercel.app/
 
 # Автор: JubobaAlex
