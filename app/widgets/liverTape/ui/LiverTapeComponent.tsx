@@ -6,7 +6,7 @@ const LoadingMusicComponent = dynamic(
 )
 
 export default async function LiverTape() {
-  const apiUrl = process.env.NEXT_PUBLIC_MUSIC_API_URL;
+  const apiUrl = process.env.PUBLIC_MUSIC_API_URL;
   
   if (!apiUrl) {
     return <div>API_URL не настроен</div>;
