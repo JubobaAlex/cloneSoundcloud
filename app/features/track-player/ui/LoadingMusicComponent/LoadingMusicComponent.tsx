@@ -1,10 +1,16 @@
 'use client'
 import { IApiMusic } from "@/app/features/auth/model/types";
-import {  memo, useState } from "react"
+import {  lazy, memo, Suspense, useState } from "react"
 import { ILoadingMusicComponentProps } from "@/app/features/auth/model/types";
 import { useDispatch, useSelector } from "react-redux";
-import { addListenedItem } from '@/app/features/last-played/model/slice/ListenedToSlice'
+import { addListenedItem } from '@/app/features/last-played/model/slice/ListenedToSlice';
+import CircularProgress from '@mui/material/CircularProgress';
+
+
+const TrackComonent = lazy(() => import("@/app/features/TrackCard/ui/TrackCardComponent"))
+
 function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
+    
     const [tracks, setTracks] = useState<IApiMusic[]>(initialData)
      const dispatch = useDispatch()
     const musicData = useSelector((state:any) => state.listenedTo.musicData || [] )
@@ -22,32 +28,9 @@ function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
                     <div className="text-gray-500 text-lg">Нет доступных треков</div>
                 ) : (
                     tracks.map((track) => (
-                        <div 
-                            className="rounded-2xl text-black w-[320px] bg-gray-100 p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-                            key={track.id}
-                        >
-                            <div className="space-y-3">
-                                <div className="flex justify-center">
-                                    <img 
-                                        className='rounded-2xl w-full h-auto object-cover shadow-md' 
-                                        src={track.image} 
-                                        alt={track.name} 
-                                    />
-                                </div>
-                                <div className="font-bold text-lg truncate">{track.name}</div>
-                                <div className="text-gray-600">{track.artist_name}</div>
-                                <div className="text-gray-500 text-sm">
-                                    Длительность: {Math.floor(track.duration / 60)}:{(track.duration % 60).toString().padStart(2, '0')}
-                                </div>
-                                <audio 
-                                    onPlay={() => ListenedItesm(track)}
-                                    className="w-full h-10 [&::-webkit-media-controls-panel]:bg-gray-200 [&::-webkit-media-controls-panel]:rounded-lg shadow-inner"
-                                    controls
-                                >
-                                    <source src={track.audio} type="audio/mpeg" />
-                                </audio>
-                            </div>
-                        </div>
+                        <Suspense  key={track.id} fallback={<CircularProgress size={40} sx={{color:'white'}}/>} >
+                            <TrackComonent track={track} onPlay={ListenedItesm} />
+                        </Suspense>
                     ))
                 )
             }
