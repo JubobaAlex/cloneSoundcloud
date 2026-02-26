@@ -28,9 +28,26 @@ function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
                     <div className="text-gray-500 text-lg">Нет доступных треков</div>
                 ) : (
                     tracks.map((track) => (
-                        <Suspense  key={track.id} fallback={<CircularProgress size={40} sx={{color:'white'}}/>} >
+                        <div key={track.id}>
+                            <Suspense fallback={
+                                <div style={{
+                                     width: '320px',
+                                    height: '480px',
+                                    background: 'rgba(128, 128, 128, 0.2)',
+                                    backdropFilter: 'blur(10px)',
+                                    WebkitBackdropFilter: 'blur(10px)',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    borderRadius: '8px', 
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    <CircularProgress size={40} sx={{ color: 'white'}} />
+                                </div>
+                            } >
                             <TrackComonent track={track} onPlay={ListenedItesm} />
                         </Suspense>
+                        </div>
                     ))
                 )
             }
