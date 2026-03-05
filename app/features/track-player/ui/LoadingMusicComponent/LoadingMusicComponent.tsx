@@ -31,8 +31,8 @@ function LoadingMusicComponent({ initialData }: ILoadingMusicComponentProps) {
                         <div key={track.id}>
                             <Suspense fallback={
                                 <div style={{
-                                     width: '320px',
-                                    height: '480px',
+                                     width: '280px',
+                                    height: '280px',
                                     background: 'rgba(128, 128, 128, 0.2)',
                                     backdropFilter: 'blur(10px)',
                                     WebkitBackdropFilter: 'blur(10px)',
